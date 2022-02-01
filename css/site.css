@@ -1,0 +1,84 @@
+:root{
+    --primary-color: black;
+    --secondary-color: gray;
+    --dark-color: #292929;
+    --white-color: #f8faf8;
+    --orange-color: #ec6b25;
+    --purple-color: #9c79e4;
+}
+
+body{
+    color:var(--dark-color);
+}
+
+
+.btn:hover{
+    background-color: var(--orange-color);
+    
+}
+
+/* Overridding styles for Nav Bar */
+nav{
+    background-color: var(--dark-color);
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--orange-color);
+    font-weight: bold;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--orange-color);
+}
+
+footer{
+    background-color: var(--dark-color);
+    padding-right: 1rem;
+}
+
+footer .social>a{
+    color: var(--secondary-color);
+    opacity: 0.75;
+}
+
+footer .social>a:hover{
+    opacity: 0.90;
+    color: var(--orange-color);
+}
+
+main>.container {
+    padding: 60px 15px 0;
+    margin-bottom: 5rem;
+}
+.sticky-footer {
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    }
+
+.bsicon{
+    color:rgb(86, 61, 124);
+}
+
+.jsicon{
+    color:rgb(240, 219, 79);
+}
+
+.html5icon{
+    color:rgb(227, 76, 38);
+}
+
+.css3icon{
+    color: rgb(38, 77, 228);
+}
+
+code[class*="language-"],
+        pre[class*="language-"] {
+            white-space: pre-wrap;
+            word-break: break-all;
+            word-wrap: break-word;
+}
+.checklist >li i{
+    color:var(--orange-color)
+}
