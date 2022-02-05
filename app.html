@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Nicholas Guinther</title>
+    <title>FIZZ BUZZ: A Coding Project By Nicholas Guinther</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,7 +38,7 @@
                     <a class="nav-link" href="/code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/nicholas-guinther/fizz-buzz">Git Repo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" target="_blank" href="https://www.nicholasguinther.com/">About</a>
@@ -49,8 +49,44 @@
 </nav>
 
 <main class="flex-shrink-0">
-    <div class="container">
-
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-lg-2">
+            <div class="col border-end border-2">
+                <h1>FIZZ BUZZ: A Coding Project</h1>
+                <h4 class="lead">A JavaScript coding exercise using loops. Write a JavaScript program that prints the numbers from 1 to 100
+                    and collects 2 multiples from the user. For multiples of the first value in the sequence display "Fizz" instead of the number
+                     and for multiples of the second value display "BUZZ". For multiples of both values display "FIZZBUZZ".
+                </h4>
+             <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+                <p>Enter the first multiple and the second multiple. Press the button and the values will appear.</p>
+            </div>
+            <div class="col">
+                <div>
+                    <h5>Enter Values</h5>
+                    <form class="row gy-2 gx-3">
+                        <div class="col">
+                            <input id="firstValue" type="number" class="form-control" placeholder="First Value" 
+                                value=3 aria-label="First Value">
+                        </div>
+                        <div class="col">
+                            <input id="secondValue" type="number" class="form-control" placeholder="Second Value" 
+                                value=5 aria-label="Second Value">
+                        </div>
+                        <div class="col-12 d-flex justify-content-end">
+                            <button id="btnSubmit" type="button" class="btn btn-outline-dark btn-large">Display Multiples</button>
+                        </div>
+                    </form>
+                    <h2 class="mt-5 border-bottom border-2">Results</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <tbody id="results">
+                                <!-- Results Go Here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 
@@ -73,11 +109,25 @@
         </div>
     </div>
 </footer>
+
+<template id="fbTemplate">
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</template>
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
 </script>
 <script src="js/site.js"></script>
+<script>
+    document.getElementById("btnSubmit").addEventListener("click", getValues);
+</script>
 </body>
 
 </html>

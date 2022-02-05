@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Nicholas Guinther</title>
+    <title>FIZZ BUZZ: A Coding Project By Nicholas Guinther</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,7 +39,7 @@
                     <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/nicholas-guinther/fizz-buzz">Git Repo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" target="_blank" href="https://www.nicholasguinther.com/">About</a>
@@ -51,22 +51,170 @@
 
 <main class="flex-shrink-0">
     <div class="container py-4 px-5 mt-5">
-        <h2 class="border-1 border-bottom border-dark">The Code for APP NAME</h2>
+        <h2 class="border-1 border-bottom border-dark">The Code for FIZZ BUZZ</h2>
         <div class="row row-cols-1 row-cols-lg-2">
             <div class="col-lg-8">
                 <pre class="line-numbers">
                     <code class="language-javascript">
-                        // Call HelloWorld
-                        function HelloWorld(){
-                             alert("Hello World!");
-                        }
+                        // Get values from the page
+// controller function
+function getValues(){
+    let firstValue = document.getElementById("firstValue").value;
+    let secondValue = document.getElementById("secondValue").value;
+
+    // attempt to parse into integers
+    firstValue = parseInt(firstValue);
+    secondValue = parseInt(secondValue);
+
+    if (Number.isInteger(firstValue) && Number.isInteger(secondValue)) {
+        // call generateNumbers
+        let numbers = fizzBuzzC(firstValue, secondValue);
+        // call displayNumbers
+        displayNumbers(numbers);
+    } else {
+        
+        alert("You must enter integers");
+        }
+}
+
+// generate numbers from 1 to 100
+// logic functions
+function fizzBuzz(firstValue, secondValue){
+
+    let numbers = [];
+
+    // get all numbers from start to end
+    // compare them to first value and second value
+    for (let i = 1; i <= 100; i++) {
+
+        if (i % firstValue == 0 && i % secondValue == 0) {
+
+            numbers.push("FIZZBUZZ")
+            
+        } else if (i % firstValue == 0){
+            
+            numbers.push("FIZZ")
+
+        } else if (i % secondValue == 0){
+
+            numbers.push("BUZZ")
+        } else{
+
+            numbers.push(i);
+        }
+        
+        
+    }
+
+    return numbers;
+}
+
+function fizzBuzzB(firstValue, secondValue){
+
+    let returnArray = []
+    let Fizz = false;
+    let Buzz = false;
+
+    for (let i=1; i <= 100; i++){
+        Fizz = i % firstValue == 0;
+        Buzz = i % secondValue == 0;
+
+        switch (true){
+            case Fizz && Buzz: {
+                returnArray.push("FIZZBUZZ");
+                break;
+            }
+            case Fizz: {
+                returnArray.push("FIZZ");
+                break;
+            }
+            case Buzz: {
+                returnArray.push("BUZZ");
+                break;
+            }
+            default: {
+                returnArray.push(i);
+                break;
+            }
+        }
+    }
+    return returnArray;
+}
+
+function fizzBuzzC(firstValue, secondValue){
+
+    let returnArray = []
+
+    for (let i=1; i <= 100; i++){
+        let value = ((i % firstValue == 0 ? 'FIZZ' : '') + (i % secondValue == 0 ? 'BUZZ': '') || i);
+        returnArray.push(value);
+
+    }
+
+    return returnArray;
+}
+
+
+// display or view functions
+function displayNumbers(numbers){
+
+    // get the table body element from the page
+    let tableBody = document.getElementById("results");
+
+    // get the template
+    let templateRows = document.getElementById("fbTemplate");
+
+    // clear the table
+    tableBody.innerHTML = "";
+
+
+    for (let index = 0; index < numbers.length; index += 5) {
+
+        let tableRow = document.importNode(templateRows.content, true);
+
+        // grab just the tds to put into array
+        let rowCols = tableRow.querySelectorAll("td");
+        rowCols[0].classList.add(numbers[index]);
+        rowCols[0].textContent = numbers[index];
+
+        rowCols[1].classList.add(numbers[index + 1]);
+        rowCols[1].textContent = numbers[index + 1];
+
+        rowCols[2].classList.add(numbers[index + 2]);
+        rowCols[2].textContent = numbers[index + 2];
+
+        rowCols[3].classList.add(numbers[index + 3]);
+        rowCols[3].textContent = numbers[index + 3];
+
+        rowCols[4].classList.add(numbers[index + 4]);
+        rowCols[4].textContent = numbers[index + 4];
+
+        tableBody.appendChild(tableRow);
+
+    }
+
+}
                     </code>
                 </pre>
             </div>
             <div class="col-lg-4">
-                <p>The Code is structured in one function.</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays and alert with a message of "Hello World!"</p>
+                <p>The Code is structured in 3 functions.</p>
+                <h5>getValues()</h5>
+                <p>Get Values is the function that is called when the user presses the <button type="button" class="btn btn-outline-dark btn-large">Display Multiples</button> button. It is responsible for
+                    collecting the first multiple and the second multiple from the page and initializing them into variables,
+                    validating input to make sure that the inputs are in fact valid integers, alerting the user if invalid input is present, calling the fizzBuzz() function,
+                    and calling the display numbers function.</p>
+                <h5>fizzBuzz(firstValue, secondValue)</h5>
+                <p>The fizz buzz function is responsible for verifying if each number in the sequence from 1 to 100 is a multiple of
+                    the first number, second number or both. I have implemented 3 different ways to accomplish this task. Solution one uses
+                    a traditional for loop with if and else if conditional statements. Solution two uses switch statements and the final solution
+                    utilizes the ternary operator.
+                </p>
+                <h5>displayNumbers(numbers)</h5>
+                <p>The display numbers function is responsible for displaying the results back to the user.
+                    It utilizes a template that I created in the app page. Instead of building a string within JavaScript 
+                    we pull in the template, fill it with data and insert the rows back into the page.
+                </p>
             </div>
         </div>
     </div>
